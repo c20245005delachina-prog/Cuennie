@@ -1,129 +1,233 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Cuennie De La China | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss"> @custom-variant dark (&:where(.dark, .dark *));
 
+    <style type="text/tailwindcss">
+        @custom-variant dark (&:where(.dark, .dark *));
+
+        @layer components {
+            .darkmode {
+                @apply rounded-2xl border-2 border-purple-200 bg-white p-6;
+                @apply dark:border-purple-500 dark:bg-purple-950 dark:text-white;
+            }
+
+            .btn-primary {
+                @apply inline-flex items-center justify-center rounded-full;
+                @apply bg-pink-500 px-6 py-3 font-semibold text-white;
+                @apply transition-colors hover:bg-purple-700;
+                @apply dark:bg-pink-500 dark:hover:bg-purple-700;
+            }
+
+            .btn-secondary {
+                @apply inline-flex items-center justify-center rounded-full;
+                @apply border-2 border-purple-700 bg-white px-6 py-3;
+                @apply font-semibold text-purple-700 transition-colors;
+                @apply hover:bg-pink-100;
+                @apply dark:border-pink-500 dark:bg-purple-950 dark:text-white;
+                @apply dark:hover:bg-purple-800;
+            }
+
+            .accent {
+                @apply font-semibold text-pink-500;
+            }
+        }
     </style>
 </head>
 
-<body
-    class="min-h-screen text-center bg-gray-100 from-purple-50 via-white to-violet-100 text-[#24134f]
-           dark:bg-slate-900 bg-white text-slate-900 dark-text-white">
-    <h1 class="mt-8 text-4xl md: text-5xl font-bold underline decoration-purple-500 decoration-4 underline-offset-8 text-[#32166f]">
-      Cuennie De La China
-    </h1>
+<body id="page" class="min-h-screen bg-white text-purple-900 transition-colors duration-300 dark:bg-purple-950 dark:text-white">
 
-       <div class="flex items=center justify-center p-4">
-          <button
-            id="toggledark"
-            class="rounded-lg bg-purple-600 px-4 py-2 text-white hover:bg-purple-500 transition-colors">Toggle
-        </button>
-       </div>
+    <!-- HEADER -->
+    <header class="sticky top-0 z-50 border-b-2 border-purple-200 bg-white dark:border-purple-500 dark:bg-purple-950">
+        <nav class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
 
-    <header>
-        <nav
-            class="flex justify-between items-center max-[50px] mt-8 max-[600px]:flex-col max-[600px]:gap-5">
-            
-            <span
-               class="font-bold text-lg text-[#32166f]">
-                @queennaayy
-        </span>
-            
-         <ul
-            class="list-non flex gap-8 p-0 m-0 font-medium max-[600px]:flex-col max-[600px]:gap-3">
-                <li><a href="#projects" class="transition-all duration-300 hover:text-purple-600 hover:underline hover:underline-offset-4">
-                   Projects
-                </a></li>
-                
-                <li><a href="#services" class="transition-all duration-300 hover:text-purple-600 hover:underline hover:underline-offset-4">
-                    Services
-                </a></li>
-               
-                <li><a href="#contact" class="transition-all duration-300 hover:text-purple-600 hover:underline hover:underline-offset-4">
-                    Contact Me
-                </a></li>
-            </ul>
+            <a href="#hero" class="text-xl font-extrabold text-purple-800 dark:text-pink-300">
+                Cuennie De La China
+            </a>
+
+            <div class="flex flex-wrap justify-center gap-4 text-sm">
+                <a href="#hero" class="nav-link">Hero</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <button id="toggledark" type="button" class="btn-primary !px-4 !py-2 text-sm">
+                Button to Switch
+            </button>
         </nav>
     </header>
 
-    <main class="flex flex-wrap gap-8 p-[50px] m-[50px] max-[600px]:p-[15px] max-[600px]:m-[10px] max-[600px]:gap-5">
+    <main 
+    class="mx-auto max-w-7xl space-y-6 px-5 py-6">
+        <section id="hero" class="grid items-center gap-8 rounded-3xl bg-purple-800 p-8 text-white md:grid-cols-2 md:p-12">
+            <div>
+                <p class="mb-3 font-semibold text-pink-300">Hello, I'm</p>
 
-        <section id="projects" class="group flex-1 min-w[280px] p-8 text-left rounded-3xl border border-purple-200 bg-gradient-to-br from-purple-200 
-                bg-gradient-to-br from-purple-100 via-purple-50 to-violet-200 shadow-lg shadow-purple-200/50 transition-all duration-500 
-                hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-300/50 max-[600px]:flex=[1_1_100%] max-[600px]:min-w-0 max-[600px]:p-6"> 
-           
-            <h2 class="projects" class="groups flex-1 min-w[280px] p-8 text-left rounded-3xl border border-purple-200 bg-gradient-to-br from-purple-100 
-            via-purple-50 to-violet-200 shadow-lg shadow-purple-200/50 transition-all duration-500 hover:translate-y-2 hover:shadow-2xl 
-            hover:shadow-purple-300/50
-             max-[600px]:flex-[1_1_100%] max-[600px]:min-w-0 max-[600px]:p-6">
-            <h2 class="text-4xl font-bold text-[#4b238f] max-[768px]:text-3xl">
-                My Projects
-            </h2>
+                <h1 class="text-4xl font-extrabold md:text-5xl">
+                    Cuennie De La China
+                </h1>
 
-            <p class="text-lg leading-8 text-[#38255b]">
-            Personal portfolio, payroll system, company website, startup website, and compliance monitoring system.
-            </p>
+                <p class="mt-4 font-medium text-white">
+                    Web Developer · Designer · Problem Solver
+                </p>
+
+                <p class="mt-4 max-w-lg leading-7 text-white">
+                    I build modern websites and systems that are simple,
+                    useful, and user-friendly. I enjoy learning new
+                    technologies and turning ideas into reality.
+                </p>
+                
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <div class="flex h-56 w-full max-w-md items-center justify-center rounded-3xl border-2 border-pink-300 bg-purple-700 text-8xl">
+                     
+                </div>
+            </div>
         </section>
 
-        <section id="services" class="border bg-gray-300 dark:border-slate-800 dark:bg-slate-900">
-          <h2 class="text-4xl font-bold text-white max[768px]:text-3xl">
-                My Services
-          </h2>
-            
-            <p class="text-lg leading-8 text-purple-50">
-            Website Creation, System Creation, AI Automation, Database Management, Project Management, Systems Analyst
-        </p>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
+            <section id="about" class="darkmode">
+                <div class="mb-4 text-3xl"></div>
+                <h2 class="text-xl font-bold">About Me</h2>
+                <p class="mt-3 leading-6">
+                    I'm a passionate web developer who enjoys creating
+                    beautiful and functional websites. I love learning
+                    new technologies and building useful projects.
+                </p>
+            </section>
+
+            <section id="services" class="darkmode">
+                <div class="mb-4 text-3xl"></div>
+                <h2 class="text-xl font-bold">Services</h2>
+                <p class="mt-3 leading-6">
+                    Website Creation, System Development, Database
+                    Management, Project Management, and Systems Analysis.
+                </p>
+            </section>
+
+            <section id="skills" class="darkmode">
+                <div class="mb-4 text-3xl"></div>
+                <h2 class="text-xl font-bold">My Skills</h2>
+                <p class="mt-3 leading-6">
+                    HTML, CSS, JavaScript, PHP, Laravel, MySQL,
+                    Tailwind CSS, Git, and Figma.
+                </p>
+            </section>
+
+            <section id="education" class="darkmode">
+                <div class="mb-4 text-3xl"></div>
+                <h2 class="text-xl font-bold">Education</h2>
+                <p class="mt-3 leading-6">
+                    Bachelor of Science in Information System
+                    
+                </p>
+            </section>
+
+        </div>
+
+        <section id="projects" class="darkmode">
+            <h2 class="section-title">My Projects</h2>
+
+            <div class="grid gap-5 md:grid-cols-3">
+                <article class="project-card">
+                    <h3 class="font-bold">Personal Portfolio</h3>
+                    <p class="mt-3 leading-6">
+                        Cuennie De La China, I'm 20 Year's Old, I lived Hda. Carmont Brgy.Punta Salong Manapla, Neg.Occ
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <h3 class="font-bold">Payroll System</h3>
+                    <p class="mt-3 leading-6">
+                        A project concept for managing employee
+                        information and payroll records.
+                    </p>
+                    <p class="accent mt-3">PHP · Database</p>
+                </article>
+
+                <article class="project-card">
+                    <h3 class="font-bold">Book Database</h3>
+                    <p class="mt-3 leading-6">
+                        A database project for organizing books,
+                        authors, publishers, and reviews.
+                    </p>
+                    <p class="accent mt-3">Laravel · MySQL</p>
+                </article>
+            </div>
         </section>
 
-        <section id="contact" class="flex-1 min-w-[280px] p-8 text-left rounded-3xl border border-purple-200 bg-white/80 backdrop-blur-sm 
-        shadow-lg shadow-purple-200/40 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl
-         hover:shadow-purple-300/50 max-[600px]:flex-[1_1_100%] max-[600px]:min-w-0 max-[600px]:p-6">
-        <h2 class="text-4xl font-bold text-[#4b238f] max-[768px]:text-3xl">
-            Let's Build Together!
-        </h2>
-            <form action="#" class="flex flex-col gap-4">
-                <!-- Name -->
-                <label for="name" class="font-semibold text-[#32166f]">
-                    Name
-                </label>
-                <input type="text" id="name" name="name" placeholder="Your Name" required
-                       class="w-full border border-purple-200 rounded-xl p-3 bg-purple-50/50 outline-none transtion-all duration-300 focus:border-purple-500 
-                       focus:ring-2 focus:ring-purple-200">
-                
-                <!-- Email -->
-                <label for="email" class="font-semibold text-[#32166f]">
-                    Email
-                </label>
-                <input type="email" name="email" id="email" placeholder="your@email.com" required
-                      class="w-full border border-purple-200 rounded-xl p-3 bg-purple-50/50 outline-none transtion-all duration-300 focus:border-purple-500 
-                      focus:ring-2 focus:ring-purple-200">
-                
-                <!-- Message -->
-                <label for="message" class="font-semibold text-[#32166f]">
-                    Message
-                </label>
-                <textarea name="message" id="message" rows="5" placeholder="Your Message..." required
-                     class="w-full border border-purple-200 rounded-xl p-3 bg-purple-50/50 outline-none transtion-all duration-300 focus:border-purple-500 
-                     focus:ring-2 focus:ring-purple-200">
-                     </textarea>
-   
-                <!-- Submit -->
-                <button type="submit" class="mt-2 bg-gradient-to-r from-purple-800 to-violet-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md shadow-purple-300 transition-all duration-300 hover:scale-[1.02] hover:from-violet-600 hover:to-purple-800 hover:shadow-lg">
-                    Send Message
+        <section id="experience" class="darkmode">
+            <h2 class="section-title">Experience</h2>
+
+            <div class="border-l-4 border-pink-500 pl-5">
+                <h3 class="text-lg font-bold">Academic and Personal Projects</h3>
+                <p class="accent mt-2">Web Development and Database Design</p>
+                <p class="mt-3 leading-7">
+                    Developing practical skills through website creation,
+                    database design, programming, and system analysis.
+                </p>
+                <p class="accent mt-2 text-sm">
+                    Replace this example with your actual experience.
+                </p>
+            </div>
+        </section>
+
+        <section id="contact" class="darkmode">
+            <h2 class="section-title">Let's Build Together!</h2>
+            <p class="mb-6">Have a project idea? Send me a message.</p>
+
+            <form id="contactForm" class="mx-auto flex max-w-2xl flex-col gap-4">
+                <div>
+                    <label for="name" class="mb-2 block font-semibold">Name</label>
+                    <input class="field" type="text" id="name" name="name"
+                        placeholder="Your name" required>
+                </div>
+
+                <div>
+                    <label for="email" class="mb-2 block font-semibold">Email</label>
+                    <input class="field" type="email" id="email" name="email"
+                        placeholder="your@email.com" required>
+                </div>
+
+                <div>
+                    <label for="message" class="mb-2 block font-semibold">Message</label>
+                    <textarea class="field" id="message" name="message" rows="5"
+                        placeholder="Your message..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary self-start">
+                    Send Message →
                 </button>
+
+                <p id="formNotice" class="hidden accent"></p>
             </form>
         </section>
+
     </main>
 
-    <script>
+    <!-- FOOTER -->
+    <footer class="bg-purple-800 px-6 py-6 text-center text-white">
+        <p class="font-semibold">© 2026 Cuennie De La China</p>
+        <a href="#hero" class="mt-3 inline-block font-semibold text-pink-300 hover:text-white">
+            Back to Top ↑
+        </a>
+    </footer>
+
+     <script>
         const tb = document.querySelector("#toggledark");
-        const html = document.documentElement;
+        const html = document.querySelector ("html");
 
         tb.addEventListener("click", function () {
             html.classList.toggle("dark");
