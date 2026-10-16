@@ -20,14 +20,14 @@
             .btn-primary {
                 @apply inline-flex items-center justify-center rounded-full;
                 @apply bg-pink-500 px-6 py-3 font-semibold text-white;
-                @apply transition-colors hover:bg-purple-700;
+                @apply hover:bg-purple-700;
                 @apply dark:bg-pink-500 dark:hover:bg-purple-700;
             }
 
             .btn-secondary {
                 @apply inline-flex items-center justify-center rounded-full;
                 @apply border-2 border-purple-700 bg-white px-6 py-3;
-                @apply font-semibold text-purple-700 transition-colors;
+                @apply font-semibold text-purple-700 ;
                 @apply hover:bg-pink-100;
                 @apply dark:border-pink-500 dark:bg-purple-950 dark:text-white;
                 @apply dark:hover:bg-purple-800;
@@ -40,7 +40,7 @@
     </style>
 </head>
 
-<body id="page" class="min-h-screen bg-white text-purple-900 transition-colors duration-300 dark:bg-purple-950 dark:text-white">
+<body id="page" class="min-h-screen bg-white text-purple-900 duration-300 dark:bg-purple-950 dark:text-white">
 
     <!-- HEADER -->
     <header class="sticky top-0 z-50 border-b-2 border-purple-200 bg-white dark:border-purple-500 dark:bg-purple-950">
@@ -59,7 +59,9 @@
                 <a href="#experience" class="nav-link">Experience</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
-
+            <button id="replayTimeline" type="button" class="btn-secondary !px-4 !py-2 text-sm">
+                ↻ Replay Timeline
+            </button>
             <button id="toggledark" type="button" class="btn-primary !px-4 !py-2 text-sm">
                 Button to Switch
             </button>
@@ -91,7 +93,7 @@
 
             <div class="flex justify-center">
                 <div class="flex h-56 w-full max-w-md items-center justify-center rounded-3xl border-2 border-pink-300 bg-purple-700 text-8xl">
-                     
+                     💻 
                 </div>
             </div>
         </section>
@@ -224,13 +226,67 @@
             Back to Top ↑
         </a>
     </footer>
+     
 
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+    <script>
+        console.log("gsap ver", gsap.version);
+        //1. Tween
+        //gsap.to("h1", {x: 150, duration:5});
+        //gsap.from("h1", {y: -60, opacity:0, duration:5});
+        //gsap.formTo("h1", {opacity:0}, {opacity:1, duration:5});
+
+        //2. Easing
+        //gsap.from("h1", {y: -60, opacity:1, duration:3, ease: "bounce.out"});
+
+        //3. Stagger
+        //gsap.from("nav a", {y:-20, opacity:0, duration:0.6, ease: "bounce.out", stagger: 0.5});
+
+        //4. Timeline
+        const tl = gsap.timeline({defaults: { duration:0.5, ease: "bounce.out"}});
+        tl.from("h1", {y: -60, opacity:0, duration:1})
+        tl.from("nav a", {y:-20, opacity:0, duration:0.6, stagger: 0.2})
+        tl.from("main section",{y:50, opacity:0, duration:0.5, stagger: 0.2});
+
+        document.querySelector("#replayTimeline").addEventListener("click", () => tl.restart());
+
+         // FOUR INFORMATION CARDS
+        const cards = gsap.utils.toArray(
+            "#about, #services, #skills, #education"
+        );
+
+        gsap.from(cards, { y: 50, opacity: 0, scale: 0.9, duration: 0.8,stagger: 0.2,ease: "back.out(1.7)", delay: 0.3});
+
+        // HOVER BOUNCE FOR ALL SEVEN SECTIONS
+        const allSections = gsap.utils.toArray(
+            "#about, #services, #skills, #education, #projects, #experience, #contact"
+        );
+
+        allSections.forEach((section) => {
+            section.addEventListener("mouseenter", () => {
+                gsap.to(section, {y: -8, scale: 1.02, duration: 0.3, ease: "back.out(1.7)"});
+            });
+
+            section.addEventListener("mouseleave", () => {
+                gsap.to(section, {y: 0, scale: 1, duration: 0.3, ease: "power2.out"});
+            });
+        });
+
+        
+
+    </script>
      <script>
         const tb = document.querySelector("#toggledark");
         const html = document.querySelector ("html");
 
         tb.addEventListener("click", function () {
             html.classList.toggle("dark");
+
+            // Darkmode Rotate
+            gsap.to(tb, {rotation: "+=360", duration: 0.6, ease: "power2.out(1.7)", onComplete: () => gsap.set(tb, { rotation: 0 })
+        });
+
         });
     </script>
 
